@@ -31,10 +31,10 @@ export default function Home(this: any) {
 
     useEffect(() => {
         getTaskCount().then(res => {
+            setLoading(false)
         })
 
         getAccount().then(res => setAccount(res))
-        setLoading(false)
     }, []);
 
     useEffect(() => {
@@ -185,7 +185,7 @@ export default function Home(this: any) {
                        onChange={(e) => inputTodoChange(e)} onKeyUp={addToDo.bind(this)}/>
             <Box sx={{flexGrow: 1, marginTop: 2}}>
                 <Grid container spacing={3}>
-                    <Grid item xs>
+                    <Grid item xs={6}>
                         <Item>
                             <List sx={{width: '100%', bgcolor: 'background.paper'}}
                                   subheader={
@@ -275,14 +275,17 @@ export default function Home(this: any) {
                             </List>
                         </Item>
                     </Grid>
+                    <Grid item xs={12}>
+                        <Box sx={{
+                            display: 'flex', flexDirection: 'column',
+                            alignItems: {xs: 'center', md: 'flex-content'},
+                        }} className={`${loading ? '' : 'hide'}`}>
+                            <CircularProgress/>
+                        </Box>
+                    </Grid>
                 </Grid>
             </Box>
-            <Box sx={{
-                display: 'flex', flexDirection: 'column',
-                alignItems: {xs: 'center', md: 'flex-start'},
-            }} className={`${loading ? '' : 'hide'}`}>
-                <CircularProgress/>
-            </Box>
+
         </Container>
     );
 }
