@@ -275,11 +275,11 @@ export default function Home(this: any) {
                             </List>
                         </Item>
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={12} className={`${loading ? '' : 'hide'}`}>
                         <Box sx={{
                             display: 'flex', flexDirection: 'column',
                             alignItems: {xs: 'center', md: 'flex-content'},
-                        }} className={`${loading ? '' : 'hide'}`}>
+                        }}>
                             <CircularProgress/>
                         </Box>
                     </Grid>
