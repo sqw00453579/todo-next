@@ -213,7 +213,7 @@ export default function Home(this: any) {
                                                         <ListItemIcon>
                                                             <Checkbox
                                                                 edge="start"
-                                                                checked={checked.indexOf((value as taskModel).id) !== -1}
+                                                                checked={(value as taskModel).completed}
                                                                 tabIndex={-1}
                                                                 disableRipple
                                                                 inputProps={{'aria-labelledby': labelId}}
@@ -258,7 +258,7 @@ export default function Home(this: any) {
                                                         <ListItemIcon>
                                                             <Checkbox
                                                                 edge="start"
-                                                                checked={checked.indexOf(value) !== -1}
+                                                                checked={(value as taskModel).completed}
                                                                 tabIndex={-1}
                                                                 disableRipple
                                                                 inputProps={{'aria-labelledby': labelId}}
